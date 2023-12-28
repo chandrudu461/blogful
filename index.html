@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BLOG WEBSITE</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div class="header">
+            <nav class="navbar navbar-expand-lg bg-dark border-body"
+                data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand px-4 fs-6 fw-bold"
+                        href="#">Blogful</a>
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarTogglerDemo02"
+                        aria-controls="navbarTogglerDemo02"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse"
+                        id="navbarTogglerDemo02">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item px-4">
+                                <a class="nav-link active" aria-current="page"
+                                    href="#">All</a>
+                            </li>
+                            <li class="nav-item px-4">
+                                <a class="nav-link active" aria-current="page"
+                                    href="#" aria-disabled="true">Culture</a>
+                            </li>
+                            <li class="nav-item px-4">
+                                <a class="nav-link active" href="#"
+                                    aria-disabled="true">Ideas</a>
+                            </li>
+                            <li class="nav-item px-4">
+                                <a class="nav-link active" href="#"
+                                    aria-disabled="true">Technology</a>
+                            </li>
+                            <li class="nav-item d-block">
+                                <div class="input-group mt-2">
+                                    <input type="search" id="search"
+                                        class="form-control hidden"
+                                        placeholder="Search">
+                                    <button class="btn btn-light" type="button"
+                                        id="btn-search"><img
+                                            src="assets/Search.png"
+                                            alt="search_icon"
+                                            class="sx-2"></button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="homepage_container">
+            <div class="homepage_header">
+                <h2>Today's picks</h2>
+                <div class="homepage_image">
+                    <img src="assets/image1.jpg" alt="image1">
+                </div>
+                <button type="button"
+                    class="btn btn-outline-primary rounded-top-4 rounded-bottom-4">Technology</button>
+                <div class="frame_content">
+                    <p> Fullname | Job title | 4min read</p>
+                    <p> May 24,2022</p>
+                </div>
+                <div class="desc">
+                    <h2>Write the blog post title right here</h2>
+                    <p>Write the blog description here, Write the blog
+                        description
+                        here, Write the blog description here, Write the blog
+                        description here, Write the blog description here, Write
+                        the
+                        blog description here, Write the blog description here,
+                        Write the blog description here, Write the blog
+                        description
+                        here, </p>
+                    <p><a href="#">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-1">
+            <div class="card">
+                <img src="assets/image1.jpg" alt="image1">
+                <button type="button"
+                    class="btn btn-outline-primary rounded-top-4 rounded-bottom-4">Technology</button>
+                <div class="frame_content">
+                    <p> Fullname | Job title | 4min read</p>
+                    <p> May 24,2022</p>
+                </div>
+                <div class="desc">
+                    <h2>Write the blog post title right here</h2>
+                    <p>Write the blog description here, Write the blog
+                        description
+                        here Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Adipisci impedit rerum non saepe numquam veritatis
+                        illo consectetur voluptas! Atque illum aut dicta officia
+                        assumenda repellat architecto suscipit praesentium
+                        temporibus blanditiis. </p>
+                    <p><a href="#">Learn more</a></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="assets/image1.jpg" alt="image1">
+                <button type="button"
+                    class="btn btn-outline-primary rounded-top-4 rounded-bottom-4">Technology</button>
+                <div class="frame_content">
+                    <p> Fullname | Job title | 4min read</p>
+                    <p> May 24,2022</p>
+                </div>
+                <div class="desc">
+                    <h2>Write the blog post title right here</h2>
+                    <p>Write the blog description here, Write the blog
+                        description
+                        here Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Adipisci impedit rerum non saepe numquam veritatis
+                        illo consectetur voluptas! Atque illum aut dicta officia
+                        assumenda repellat architecto suscipit praesentium
+                        temporibus blanditiis. </p>
+                    <p><a href="#">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mx-auto d-flex justify-content-center">Trending Topics</h2>
+        <!-- <div class="container-1"> -->
+        <div class="container-1" id="main">
+        </div>
+
+        <!-- </div> -->
+
+        <!-- <div class="container-2">
+            <h2>Trending Topics</h2>
+            <div class="trending_topics">
+                <div class="card">
+                    <img src="assets/image1.jpg" alt="image2">
+                    <button type="button"
+                        class="btn btn-outline-primary rounded-top-4 rounded-bottom-4">Technology</button>
+                    <div class="frame_content">
+                        <p> Fullname | Job title | 4min read</p>
+                        <p> May 24,2022</p>
+                    </div>
+                    <div class="desc">
+                        <h2>Write the blog post title right here</h2>
+                        <p>Write the blog description here, Write the blog
+                            description
+                            here, Write the blog description here </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trending_topics">
+                <div class="card">
+                    <img src="image1.jpg" alt="image2">
+                    <button type="button"
+                        class="btn btn-outline-primary rounded-top-4 rounded-bottom-4">Technology</button>
+                    <div class="frame_content">
+                        <p> Fullname | Job title | 4min read</p>
+                        <p> May 24,2022</p>
+                    </div>
+                    <div class="desc">
+                        <h2>Write the blog post title right here</h2>
+                        <p>Write the blog description here, Write the blog
+                            description
+                            here, Write the blog description here </p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <script>
+            const data = [
+    {
+        image: 'technology1.jpg',
+        category: 'technology',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'technology',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'technology',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'technology',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'technology',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'technology',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'technology',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'technology',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'culture',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'culture',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'culture',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'culture',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'culture',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'culture',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'culture',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'culture',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'culture',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'culture',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'culture',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'ideas',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'ideas',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'ideas',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'ideas',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'ideas',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'ideas',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'ideas',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'ideas',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'ideas',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'ideas',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+    {
+        image: 'technology1.jpg',
+        category: 'ideas',
+        fullname: 'Michael Chang',
+        jobTitle: 'Tech Innovator',
+        readingTime: '10 min',
+        date: '2023-05-20',
+        title: 'Emerging Technologies in 2023',
+        description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
+    },
+]
+
+        
+var mainElement = document.getElementById("main");
+
+data.forEach(post => {
+
+    var blogPostDiv = document.createElement("div");
+    blogPostDiv.className = "card";
+
+    blogPostDiv.innerHTML = `
+        <img src="assets/image1.jpg" alt="${post.title}">
+        <button type="button" class="btn btn-outline-primary rounded-top-4 rounded-bottom-4">${post.category}</button>
+        <div class="frame_content">
+            <p>${post.fullname} | ${post.jobTitle} | ${post.readingTime}</p>
+            <p>${post.date}</p>
+        </div>
+        <div class="desc">
+            <h2>${post.title}</h2>
+            <p>${post.description}</p>
+            <p><a href="#">Learn more</a></p>
+        </div>
+    `;
+
+    // Append the blog post div to the 'main' element
+    mainElement.appendChild(blogPostDiv);
+}); 
+        </script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="script.js" type="module"> </script>
+        <script src="data.js" type="module"></script>
+    </body>
+
+</html>
