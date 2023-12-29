@@ -40,9 +40,6 @@ const data = [
         description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
     },
     {
-
-    },
-    {
         image: 'technology1.jpg',
         category: 'technology',
         fullname: 'Michael Chang',
@@ -303,3 +300,5 @@ const data = [
         description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
     },
 ]
+
+export default data;
