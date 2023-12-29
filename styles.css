@@ -22,7 +22,11 @@ body {
     position: relative;
 }
 
-.nav-link::before {
+.nav-item .active {
+    text-decoration: underline;
+}
+
+/* .nav-link::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -30,13 +34,7 @@ body {
     width: 0;
     height: 2px;
     background-color: white;
-    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
-}
-
-.nav-link:hover::before {
-    width: 50%;
-    left: 25%;
-}
+} */
 
 .nav-link .search_icon {
     background: transparent;
@@ -50,6 +48,7 @@ body {
     align-items: center;
     gap: 1.875rem;
     align-self: stretch;
+    z-index: 1;
 }
 
 .homepage_header {
@@ -189,35 +188,24 @@ desc {
 
 /* search stylings  */
 
-/* Add this CSS to your stylesheet */
-
-/* Style for the container that displays search results */
-#main-2 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 20px;
+#search_renderer {
+    display: none;
+    position: absolute;
+    left: 35%;
+    flex-direction: column;
+    z-index: 2;
+    background-color: lightgray;
 }
 
-/* Style for each search result card */
-.search_results {
-    width: 300px;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+#search_renderer .search_results {
+    padding: 5%;
+    width: 20rem;
+    font-size: 1.25rem;
+    border: 1px solid black;
 }
 
-/* Style for the search input */
-#searchBar {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.search_results:hover {
+    background-color: blue;
 }
 
 /* Style for the article page container */

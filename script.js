@@ -11,9 +11,36 @@ var mainElement = document.getElementById("main");
 var showMoreButton = document.getElementById("show_more");
 var postsPerPage = 10;
 var renderedPosts = 0;
+var currentFilter = "";
+var blogData = data;
+
+///// navbar activeness
+
+var navLinks = document.querySelectorAll(".navbar-nav a");
+
+navLinks.forEach(function (link) {
+    link.addEventListener("click", function () {
+        navLinks.forEach(function (navLink) {
+            navLink.classList.remove("active");
+        });
+
+        link.classList.add("active");
+        currentFilter = link.innerText;
+        mainElement.innerHTML = "";
+        renderedPosts = 0;
+        showMore();
+    });
+});
 
 function renderPosts(startIndex, endIndex) {
-    data.slice(startIndex, endIndex).forEach(post => {
+    if (currentFilter !== "") {
+        blogData = data.filter((post) => post.category === currentFilter);
+        blogData = data.filter((post) => {
+            return post.category === currentFilter
+        });
+    }
+    console.log(blogData);
+    blogData.slice(startIndex, endIndex).forEach(post => {
         var blogPostDiv = document.createElement("div");
         blogPostDiv.className = "card";
         blogPostDiv.innerHTML = ` 
@@ -28,14 +55,13 @@ function renderPosts(startIndex, endIndex) {
                     <p>${post.description}</p>
                 </div>
             `;
+        console.log(post.category);
         blogPostDiv.addEventListener("click", function () {
             localStorage.setItem("selectedBlogPost", JSON.stringify(post));
             window.location.href = "article_page.html";
         });
-
         mainElement.appendChild(blogPostDiv);
     });
-
     renderedPosts += endIndex - startIndex;
 }
 
@@ -43,9 +69,10 @@ function showMore() {
     var startIndex = renderedPosts;
     var endIndex = startIndex + postsPerPage;
 
+    console.log(startIndex, endIndex);
     renderPosts(startIndex, endIndex);
 
-    if (renderedPosts >= data.length) {
+    if (renderedPosts >= blogData.length) {
         showMoreButton.style.display = "none";
     }
 }
@@ -60,8 +87,8 @@ searchBar.addEventListener("input", function () {
 });
 
 function renderSearchResults(searchValue) {
-    mainElement.innerHTML = "";
-    var newMain = document.createElement("main-2");
+    var searchRendererEl = document.querySelector("#search_renderer");
+    searchRendererEl.style.display = "flex";
 
     var searchResults = data.filter(post => post.title.toLowerCase().includes(searchValue));
 
@@ -75,9 +102,7 @@ function renderSearchResults(searchValue) {
             localStorage.setItem("selectedBlogPost", JSON.stringify(post));
             window.location.href = "article_page.html";
         });
-
-        newMain.appendChild(blogPostDiv);
-        mainElement.appendChild(newMain);
+        searchRendererEl.appendChild(blogPostDiv);
     });
 }
 
