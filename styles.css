@@ -1,5 +1,11 @@
 body {
     font-size: 1rem;
+    font-family: Epilogue;
+    /* font-size: 1.125rem; */
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.75rem;
+
 }
 
 .hidden {
@@ -30,6 +36,10 @@ body {
 .nav-link:hover::before {
     width: 50%;
     left: 25%;
+}
+
+.nav-link .search_icon {
+    background: transparent;
 }
 
 
@@ -72,7 +82,7 @@ body {
     flex-shrink: 0;
     border-radius: 2.875rem;
     color: #1976D2;
-    border: 1px solid #1976D2;
+    /* border: 1px solid #1976D2; */
     width: 7vw;
     margin-top: 1rem;
 }
@@ -119,11 +129,15 @@ desc {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
+    /* grid-area: 0 1 0 2; */
     align-items: center;
     /* border: #1976D2 2px solid; */
     padding: 6.25rem 13.75rem 6.25rem 13.75rem;
 }
 
+.container-2>*:first-child {
+    grid-column: 1 / span 2;
+}
 
 .card {
     border: none;
@@ -141,3 +155,84 @@ desc {
     color: white;
     border-radius: 0%;
 }
+
+.footer li {
+    list-style-type: none;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.news-letter input,
+.news-letter button {
+    border-radius: 5px;
+}
+
+.logo-list ul {
+    display: flex;
+    justify-content: flex-start;
+    justify-content: space-evenly;
+}
+
+.logo-list img {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+}
+
+.logo-list li :hover {
+    box-shadow: 0px 0px 2px black;
+    border-radius: 50%;
+}
+
+
+/* search stylings  */
+
+/* Add this CSS to your stylesheet */
+
+/* Style for the container that displays search results */
+#main-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+/* Style for each search result card */
+.search_results {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Style for the search input */
+#searchBar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style for the article page container */
+#article-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the article content */
+.article-content {
+    max-width: 100%;
+}
+
+/* Add any additional styling as needed */

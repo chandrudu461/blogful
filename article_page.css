@@ -1,0 +1,62 @@
+body {
+    font-family: Epilogue;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.75rem;
+}
+
+.container-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* justify-content: flex-start; */
+    padding: 8.75rem 13.75rem 3.125rem 13.75rem;
+}
+
+a {
+    color: #A0A1A4;
+    text-decoration: none;
+}
+
+h1 {
+    color: #2B2B2B;
+    /* H1 - big */
+    font-family: Epilogue;
+    font-size: 2.8125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 4.0625rem;
+    /* 144.444% */
+}
+
+p {
+    color: #A0A1A4;
+
+    /* Body text */
+    font-family: Epilogue;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
+    /* 150% */
+}
+
+.author_image {
+    display: flex;
+    width: 18.75rem;
+    align-items: center;
+    gap: 0.9375rem;
+}
+
+.author_image img {
+    height: 3.125rem;
+    width: 3.125rem;
+    border-radius: 50%;
+}
+
+.blog_image {
+    height: 33.75rem;
+    align-self: stretch;
+    border-radius: 1.0625rem;
+}
