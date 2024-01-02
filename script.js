@@ -14,7 +14,7 @@ var renderedPosts = 0;
 var currentFilter = "";
 var blogData = data;
 
-///// navbar activeness
+// navbar activeness
 
 var navLinks = document.querySelectorAll(".navbar-nav a");
 
@@ -90,6 +90,7 @@ function renderSearchResults(searchValue) {
     var searchRendererEl = document.querySelector("#search_renderer");
     searchRendererEl.style.display = "flex";
 
+    searchRendererEl.innerHTML = "";
     var searchResults = data.filter(post => post.title.toLowerCase().includes(searchValue));
 
     searchResults.forEach(post => {
@@ -105,6 +106,14 @@ function renderSearchResults(searchValue) {
         searchRendererEl.appendChild(blogPostDiv);
     });
 }
+
+const modeToggle = document.getElementById("mode-toggle");
+const body = document.body;
+
+modeToggle.addEventListener("change", function () {
+    body.classList.toggle("dark-mode");
+});
+
 
 
 

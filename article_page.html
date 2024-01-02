@@ -5,12 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="article_page.css">
         <title>ARTICLE page</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="article_page.css">
     </head>
     <body>
         <!-- <div class="container" id="article-container">
             <script src="article_page.js"></script>
         </div> -->
-        <div class="container-1">
+        <div class="container-1" id="main"></div>
+        <!-- <div class="container-1">
             <div class="back">
                 <img src="assets/back.svg" alt="back">
                 <a href="index.html">back</a>
@@ -24,12 +31,128 @@
                 <p>May 24,2022 | 4 min read</p>
                 <img src="share_image.jpg" alt="share_image">
             </div>
-            <div class="blog_image">
-                <img src="assets/image1.jpg" alt="image1">
+            <img class="image" src="assets/image1.jpg" alt="image1">
+            <div class="container-2">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing
+                    elit.
+                    Harum
+                    recusandae illo ab, officiis adipisci, quia nulla
+                    repellendus,
+                    alias magnam maxime est obcaecati voluptate amet totam
+                    fugit
+                    distinctio rem minus optio id earum. Voluptatum minima
+                    esse,
+                    maiores dignissimos perspiciatis laboriosam quaerat sed
+                    non
+                    fuga! Dolor recusandae quasi, vel culpa quisquam omnis
+                    dolore
+                    earum fugiat amet, nisi itaque. Eaque, consectetur.
+                    Nobis!
+                </p>
+                <a href="#">Learn more</a>
+                <button class="btn">Technology</button>
             </div>
-            <div class="desc">
+            <div class="container-3">
+                <h2>
+                    What Are Hotspots Hints?
+                </h2>
 
+                <p>
+                    If your prototype has Links and you want to see where they
+                    are located during preview, toggle on the Hotspots Hint
+                    preference.
+                </p>
+                <p>
+                    These hints will highlight the clickable elements of your
+                    prototype when you click on something that is NOT clickable
+                    and help those who are not familiar with the project to
+                    navigate through the prototype with ease.
+                </p>
+                <p>1. Toggle Hotspots On/Off
+                    From your Anima Project’s page click on the “Run Prototype”
+                    preferences icon and toggle the switch on.
+                    2. Re-sync your Design
+                    In order for the Prototype Preferences to take action, the
+                    design needs to be re-synced.
+                    Go back to your design program and click Preview in Browser
+                    on the Anima plugin and then Sync to Project.
+                    3. Run Prototype
+                    Once the new Sync is up on the Anima Project’s page, click
+                    on Run Prototype, or go to the project’s Public Link (Click
+                    Share > Enable Public Link).
+                    Notice how the Links on your design are highlighted with a
+                    light blue Hotspot when you click anywhere on the page that
+                    is not clickable.
+                </p>
+                <p>
+                    What is Anima?
+                    Anima is automating the design-to-code process, allowing
+                    designers to achieve more without learning to code, and
+                    helping teams to deliver faster.
+
+                </p>
+            </div>
+        </div> -->
+        <div class="container-4">
+            <h2>
+                Related Posts
+            </h2>
+        </div>
+
+        <div class="container-5" id="related_posts"></div>
+        <div class="row footer p-3 text-center">
+            <div class="col-sm-6 mb-4 text-center">
+                <h5 class="mb-4">Blogful</h5>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="#"
+                            class="text-dark">Blogs</a></li>
+                    <li class="mb-2"><a href="#"
+                            class="text-dark">Contact</a></li>
+                    <li class="mb-2"><a href="#" class="text-dark">Quick
+                            Links</a></li>
+                    <li class="mb-2"><a href="#" class="text-dark">About
+                            us</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 text-start">
+                <h5 class="mb-4">Subscribe for Newsletter</h5>
+                <p class="w-50">Get our hand-picked discoveries & articles
+                    delivered right to your inbox.</p>
+                <div class="news-letter mb-3">
+                    <form>
+                        <input class="w-50" type="email"
+                            placeholder="Enter your email">
+                        <button class="bg-info" type="submit">SUBMIT</button>
+                    </form>
+                </div>
+                <div class="w-50 social-media">
+                    <h5 class="mb-3">Follow on</h5>
+                    <div class="logo-list">
+                        <ul class="list-unstyled">
+                            <li><img
+                                    src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/73790822-f2ce-45aa-bcb9-9f89327637d6/ddei3yy-b7227286-c75a-406a-bd95-958072a59e97.png/v1/fill/w_894,h_894/discord_logo___gentleman_by_mgs551_ddei3yy-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODk0IiwicGF0aCI6IlwvZlwvNzM3OTA4MjItZjJjZS00NWFhLWJjYjktOWY4OTMyNzYzN2Q2XC9kZGVpM3l5LWI3MjI3Mjg2LWM3NWEtNDA2YS1iZDk1LTk1ODA3MmE1OWU5Ny5wbmciLCJ3aWR0aCI6Ijw9ODk0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.NrUH4UoD2cgro3NyB-ikuNZr71Bx0Acy_2gTpIj56tU"
+                                    alt></li>
+                            <li><img
+                                    src="https://static-00.iconduck.com/assets.00/instagram-rounded-filled-icon-1024x1024-q8kttbik.png"
+                                    alt></li>
+                            <li><img
+                                    src="https://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-512.png"
+                                    alt></li>
+                            <li><img
+                                    src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                                    alt></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="article_page.js" type="module"> </script>
+        <script src="data.js" type="module"></script>
     </body>
 </html>

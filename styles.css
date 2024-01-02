@@ -1,11 +1,9 @@
 body {
     font-size: 1rem;
     font-family: Epilogue;
-    /* font-size: 1.125rem; */
     font-style: normal;
     font-weight: 400;
     line-height: 1.75rem;
-
 }
 
 .hidden {
@@ -126,6 +124,7 @@ desc {
 
 .container-2 {
     display: grid;
+    gap: 0.5rem;
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
     /* grid-area: 0 1 0 2; */
@@ -218,9 +217,56 @@ desc {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Style for the article content */
 .article-content {
     max-width: 100%;
 }
 
-/* Add any additional styling as needed */
+/* Light/Dark Mode Switch Styles */
+.mode-switch {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+}
+
+.mode-switch input {
+    display: none;
+}
+
+.mode-switch label {
+    position: absolute;
+    top: 10%;
+    left: 70%;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.mode-switch label:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.mode-switch input:checked+label {
+    background-color: #333;
+}
+
+.mode-switch input:checked+label:before {
+    transform: translateX(20px) translateY(-50%);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Add more specific dark mode styles as needed */
