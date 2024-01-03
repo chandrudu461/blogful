@@ -13,6 +13,19 @@ document.addEventListener("DOMContentLoaded", function () {
         description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
     };
 
+    function shareOnWhatsapp() {
+        console.log("sharing on whatsapp");
+    }
+    function shareOnFacebook() {
+        console.log("sharing on facebook");
+    }
+    function shareOnInstagram() {
+        console.log("sharing on instagram");
+    }
+    function shareOnTwitter() {
+        console.log("sharing on Twitter");
+    }
+
     function getBlogPostData() {
         var blogPostData = JSON.parse(localStorage.getItem("selectedBlogPost"));
         // console.log(blogPostData);
@@ -34,11 +47,17 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="title">
             <h1>${blogPostData.title}</h1>
         </div>
-        <div class="author_image">
+        <div class="author_image">  
             <img src="assets/author_image.png" alt="author_image">
             <p>${blogPostData.fullname} | ${blogPostData.jobTitle}</p>
             <p>${blogPostData.date} | ${blogPostData.readingTime}</p>
-            <img src="share_image.jpg" alt="share_image">
+            <img id="share_image" src="assets/author_image.png" alt="share_image">
+            <ul class="share_list" id="share_list">
+                <li onclick="shareOnWhatsapp()">Whatsapp</li>
+                <li onclick="shareOnInstagram()">Instagram</li>
+                <li onclick="shareOnFacebook()">Facebook</li>
+                <li onclick="shareOnTwitter()">Twitter</li>
+            </ul>
         </div>
         <img class="image" src="assets/image1.jpg" alt="image1">
         <div class="container-2">
@@ -116,10 +135,16 @@ document.addEventListener("DOMContentLoaded", function () {
         return relatedPosts;
     }
 
+    function randomGenerate(n) {
+        return Math.floor(Math.random() * n);
+    }
+
     function renderRelatedPosts() {
         var relatedPosts = getReletedPostsData();
         console.log(relatedPosts);
-        var newRelatedPosts = [relatedPosts[0], relatedPosts[1]];
+        var i = randomGenerate(relatedPosts.length);
+        var j = randomGenerate(relatedPosts.length);
+        var newRelatedPosts = [relatedPosts[i], relatedPosts[j]];
         var length = 0;
         newRelatedPosts.forEach((post) => {
             var blogPostDiv = document.createElement("div");
@@ -151,4 +176,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     renderRelatedPosts();
     renderArticle();
+
+    // share image
+    var shareImageElement = document.getElementById("share_image");
+    var shareListElement = document.querySelector(".share_list");
+    shareImageElement.addEventListener("click", function () {
+        console.log(shareListElement);
+        // var shareListDisplayStyle = shareListElement.style.display;
+        if (shareListElement.style.visibility === "hidden") {
+            shareListElement.style.visibility = "visible";
+        }
+        else {
+            shareListElement.style.visibility = "hidden";
+        }
+    });
 });

@@ -89,7 +89,7 @@ body {
     border-radius: 2.875rem;
     color: #1976D2;
     border: 1px solid #1976D2;
-    width: 7vw;
+    width: 50%;
     margin-top: 1rem;
 }
 
@@ -120,6 +120,7 @@ desc {
     align-items: center;
     border: #1976D2 2px solid;
     padding: 6.25rem 13.75rem 6.25rem 13.75rem;
+    /* padding: 7% 15.25% 7% 15.25%; */
 }
 
 .container-2 {
@@ -130,7 +131,12 @@ desc {
     /* grid-area: 0 1 0 2; */
     align-items: center;
     /* border: #1976D2 2px solid; */
-    padding: 6.25rem 13.75rem 6.25rem 13.75rem;
+    /* padding: 6.25rem 13.75rem 6.25rem 13.75rem; */
+    padding: 7% 15.25% 7% 15.25%;
+}
+
+.container-2:hover>* {
+    cursor: pointer;
 }
 
 .container-2>*:first-child {
@@ -192,19 +198,18 @@ desc {
     position: absolute;
     left: 35%;
     flex-direction: column;
+    /* width: 60%; */
     z-index: 2;
-    background-color: lightgray;
 }
 
 #search_renderer .search_results {
     padding: 5%;
     width: 20rem;
     font-size: 1.25rem;
-    border: 1px solid black;
 }
 
-.search_results:hover {
-    background-color: blue;
+#search_renderer .search_results:hover {
+    cursor: pointer;
 }
 
 /* Style for the article page container */
@@ -270,3 +275,11 @@ body.dark-mode {
 }
 
 /* Add more specific dark mode styles as needed */
+
+@media (max-width:700px) and (min-width:375px) {
+
+    .container-2 btn {
+        width: 100%;
+        border: 3px solid red !important;
+    }
+}

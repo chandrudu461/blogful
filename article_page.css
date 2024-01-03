@@ -42,7 +42,7 @@ p {
 
 .author_image {
     display: flex;
-    width: 18.75rem;
+    width: 50%;
     align-items: center;
     gap: 0.9375rem;
 }
@@ -160,4 +160,22 @@ p {
     border: 1px solid #1976D2;
     width: 7vw;
     margin-top: 1rem;
+}
+
+.share_list {
+    list-style: none;
+    background-color: white;
+    box-shadow: white;
+    font-family: Epilogue;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.75rem;
+    opacity: 0.8;
+    /* display: none; */
+    visibility: hidden;
+}
+
+.share_list li {
+    padding: 2%;
 }
