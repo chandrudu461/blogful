@@ -143,7 +143,7 @@ p {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+    align-items: flex-start;
     /* padding: 6.25rem 13.75rem 6.25rem 13.75rem; */
     padding: 11.11% 15.28% 4.17% 15.28%;
 }
@@ -166,7 +166,7 @@ p {
     cursor: pointer;
 }
 
-.share_list {
+/* .share_list {
     list-style: none;
     background-color: white;
     box-shadow: white;
@@ -175,10 +175,10 @@ p {
     font-style: normal;
     font-weight: 400;
     line-height: 1.75rem;
-    opacity: 0.8;
-    /* display: none; */
-    visibility: hidden;
-}
+    opacity: 0.8; */
+/* display: none; */
+/* visibility: hidden;
+} */
 
 .share_list li {
     padding: 2%;
@@ -193,7 +193,7 @@ p {
     transform: rotate(10deg);
     opacity: 0.5;
     width: 5%;
-    height: 10%;
+    height: 5%;
 }
 
 
@@ -273,7 +273,102 @@ body.dark-mode {
 }
 
 #loading-message {
-    font-size: 24px;
+    font-size: 20px;
+    color: #1990FF;
+    margin-left: 50.5%;
+    margin-top: 10%;
+}
+
+#loading-screen .progress-bar {
+    border: 2px solid #1990FF;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 55%;
+    left: 53%;
+    margin-top: -20px;
+    /* Half of the height */
+    margin-left: -20px;
+    /* Half of the width */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.hidden {
+    display: none;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link .search_icon {
+    background: transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
     color: white;
-    margin-left: 50%;
+}
+
+.nav-link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: -3px;
+    height: 3px;
+    margin: 5px;
+    /* width: 60%; */
+    background-color: white;
+    visibility: hidden;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+    visibility: visible;
+}
+
+.inter_data {
+    display: flex;
+    flex-direction: column;
+    width: 34%;
+}
+
+.box {
+    border-radius: 0.3125rem;
+    border: 1px solid #F4F6F8;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 6.1875rem;
+    height: 6rem;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.box .share-item:hover {
+    background-color: #F4F6F8;
+    cursor: pointer;
 }

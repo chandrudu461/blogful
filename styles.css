@@ -20,9 +20,10 @@ body {
     position: relative;
 }
 
+/* 
 .nav-item .active {
     text-decoration: underline;
-}
+} */
 
 /* .nav-link::before {
     content: '';
@@ -89,7 +90,8 @@ body {
     border-radius: 2.875rem;
     color: #1976D2;
     border: 1px solid #1976D2;
-    width: 50%;
+    width: 6rem;
+    font-size: 0.75rem;
     margin-top: 1rem;
 }
 
@@ -128,7 +130,7 @@ desc {
     gap: 0.5rem;
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+    align-items: flex-start;
     padding: 7% 15.25% 7% 15.25%;
 }
 
@@ -149,12 +151,35 @@ desc {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 6.25% 15.25% 6.25% 15.25%;
     margin: 0 auto;
 }
 
 .show_more_div .btn {
     color: white;
-    border-radius: 0%;
+    width: 12.5rem;
+    height: 3.6875rem;
+    flex-shrink: 0;
+    border-radius: 0.3125rem;
+    background: #1976D2;
+    /* font-family: Epilogue; */
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
+    /* 100% */
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+}
+
+.footer {
+    color: #2D2D2D;
+    /* font-family: Epilogue; */
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.875rem;
+    /* 150% */
 }
 
 .footer li {
@@ -187,29 +212,57 @@ desc {
     border-radius: 50%;
 }
 
-#search_renderer {
-    display: none;
+
+#suggestionContainer {
     position: absolute;
-    left: 35%;
+    top: 80px;
+    width: 50vw;
+    left: 25vw;
+    right: 0;
     background-color: white;
-    flex-direction: column;
-    /* width: 60%; */
-    z-index: 2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
 }
 
-#search_renderer .search_results {
-    padding: 5%;
-    width: 20rem;
-    font-size: 1.25rem;
+#suggestionList {
+    max-height: 200px;
+    overflow-y: auto;
 }
 
-#search_renderer .dark-mode {
-    background-color: #2B2B2B;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
-#search_renderer .search_results:hover {
-    cursor: pointer;
+li {
+    margin: 0;
 }
+
+/* Add dark mode styles */
+.dark-mode #suggestionContainer {
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.dark-mode #suggestionList {
+    color: #fff;
+}
+
+/* Add white mode styles */
+.white-mode #suggestionContainer {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+.white-mode #suggestionList {
+    color: #000;
+}
+
 
 #article-container {
     max-width: 800px;
@@ -219,6 +272,34 @@ desc {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/* d? */
+.nav-link:hover,
+.nav-link.active {
+    color: white;
+}
+
+.nav-link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: -3px;
+    height: 3px;
+    margin: 5px;
+    /* width: 60%; */
+    background-color: white;
+    visibility: hidden;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+    visibility: visible;
+}
+
+/* k */
+
 
 .article-content {
     max-width: 100%;
@@ -302,6 +383,65 @@ body.dark-mode {
 }
 
 #loading-message {
-    font-size: 24px;
-    color: white;
+    font-size: 20px;
+    color: #1990FF;
+    margin-left: 5%;
+    margin-top: 10%;
+}
+
+#loading-screen .progress-bar {
+    border: 2px solid #1990FF;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 55%;
+    left: 53%;
+    margin-top: -20px;
+    /* Half of the height */
+    margin-left: -20px;
+    /* Half of the width */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* slider  */
+
+
+.slider {
+    max-width: 300px;
+    /* border: 2px solid black; */
+    margin: 0;
+}
+
+.fontSizeContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fontSizeContainer span {
+    display: block;
+    text-align: center;
+    width: 20%;
+}
+
+#sliderFontSize {
+    width: 100%;
+}
+
+#fontSizeLabel {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
 }

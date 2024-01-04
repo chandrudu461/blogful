@@ -1,4 +1,4 @@
-import data from "/data.js";
+import data from "./data.js"
 document.addEventListener("DOMContentLoaded", function () {
     var mainElement = document.getElementById("main");
     var relatedPostsElement = document.getElementById("related_posts");
@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var themeMode = localStorage.getItem("themeMode") || "white-mode";
     document.body.classList.toggle("dark-mode", themeMode === "dark-mode");
+    var navLinks = document.querySelectorAll(".navbar-nav a");
+    var currentFilter = localStorage.getItem("currentFilter");
 
     const loadingScreen = document.getElementById('loading-screen');
     loadingScreen.style.display = 'flex';
@@ -22,6 +24,23 @@ document.addEventListener("DOMContentLoaded", function () {
         // Hide loading screen after the timeout
         loadingScreen.style.display = 'none';
     }, 2000);
+
+    navLinks.forEach(function (link) {
+        if (link.innerHTML === currentFilter) {
+            navLinks.forEach(function (navLink) {
+                navLink.classList.remove("active");
+            });
+            link.classList.add("active");
+            currentFilter = link.innerText;
+        }
+        // link.addEventListener("click", function () {
+        //     navLinks.forEach(function (navLink) {
+        //         navLink.classList.remove("active");
+        //     });
+        //     link.classList.add("active");
+        //     currentFilter = link.innerText;
+        // });
+    });
 
     function getBlogPostData() {
         var blogPostData = JSON.parse(localStorage.getItem("selectedBlogPost"));
@@ -37,16 +56,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (blogPostData) {
             function shareOnWhatsapp() {
-                console.log("sharing on whatsapp");
+                // console.log("sharing on whatsapp");
             }
             function shareOnFacebook() {
-                console.log("sharing on facebook");
+                // console.log("sharing on facebook");
             }
             function shareOnInstagram() {
-                console.log("sharing on instagram");
+                // console.log("sharing on instagram");
             }
             function shareOnTwitter() {
-                console.log("sharing on Twitter");
+                // console.log("sharing on Twitter");
             }
             var articleDiv = document.createElement("div");
             articleDiv.className = "article-content";
@@ -60,14 +79,18 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         <div class="author_image">  
             <img src="assets/author_image.png" alt="author_image">
+            <div class="inter_data">
             <p>${blogPostData.fullname} | ${blogPostData.jobTitle}</p>
             <p>${blogPostData.date} | ${blogPostData.readingTime}</p>
+            </div>
             <img id="share_image" src="assets/share_image.png" alt="share_image">
-            <ul class="share_list" id="share_list">
-                <li id="whatsapp">Whatsapp</li>
-                <li id="facebook">Facebook</li>
-                <li id="twitter">Twitter</li>
-            </ul>
+            <div class="box">
+            <div class="share_list" id="share_list">
+                <div class="share-item" id="whatsapp">Whatsapp</div>
+                <div class="share-item" id="facebook">Facebook</div>
+                <div class="share-item" id="twitter">Twitter</div>
+            </div>
+            </div>
         </div>
         <img class="image" src="assets/image1.jpg" alt="image1">
         <div class="container-2">
@@ -90,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 Nobis!
             </p>
             <a href="#">Learn more</a>
-            <button class="btn">Technology</button>
+            <button class="btn button">${blogPostData.category}</button>
         </div>
         <div class="container-3">
             <h2>
@@ -133,14 +156,14 @@ document.addEventListener("DOMContentLoaded", function () {
             </p>
         </div>
             `;
-            console.log(articleDiv);
+            // console.log(articleDiv);
             mainElement.appendChild(articleDiv);
         }
     }
 
     function getReletedPostsData() {
         currentBlog = getBlogPostData();
-        console.log(currentBlog);
+        // console.log(currentBlog);
         var relatedPosts = data.filter((post) => (post.title != currentBlog.title) && (post.category === currentBlog.category));
         return relatedPosts;
     }
@@ -151,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderRelatedPosts() {
         var relatedPosts = getReletedPostsData();
-        console.log(relatedPosts);
+        // console.log(relatedPosts);
         var i = randomGenerate(relatedPosts.length);
         var j = randomGenerate(relatedPosts.length);
         while (i === j) {
@@ -174,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p>${post.description}</p>
                 </div>
             `;
-            console.log(post.category);
+            // console.log(post.category);
             blogPostDiv.addEventListener("click", function () {
                 localStorage.setItem("selectedBlogPost", JSON.stringify(post));
                 window.location.href = "article_page.html";
@@ -189,38 +212,70 @@ document.addEventListener("DOMContentLoaded", function () {
 
     renderRelatedPosts();
     renderArticle();
+    var buttonElements = document.querySelectorAll(".button");
+    var listElements = document.querySelectorAll(".footer a");
+    var footerElements = document.querySelectorAll(".footer");
+    if (themeMode === "dark-mode") {
+        buttonElements.forEach(function (button) {
+            button.style.backgroundColor = "#1976D2";
+            button.style.color = "white";
+        });
+        footerElements.forEach(function (element) {
+            element.style.color = "white";
+        })
+        listElements.forEach(function (listElement) {
+            listElement.classList.remove("text-dark");
+            listElement.classList.toggle("text-white");
+        });
+    }
+    else {
+        buttonElements.forEach(function (button) {
+            button.style.backgroundColor = "white";
+            button.style.color = "#1976D2";
+        });
+        listElements.forEach(function (listElement) {
+            listElement.classList.remove("text-white");
+            // listElement.class += " text-dark";
+            listElement.classList.toggle("text-dark");
+        });
+        // labelElement.style.backgroundColor = "#333";
+        footerElements.forEach(function (element) {
+            element.style.color = "#2b2b2b";
+        })
+    }
 
     // share image
     var shareImageElement = document.getElementById("share_image");
     var shareListElement = document.querySelector(".share_list");
+    var boxElement = document.querySelector(".box");
     shareImageElement.addEventListener("click", function () {
-        console.log(shareListElement);
-        // var shareListDisplayStyle = shareListElement.style.display;
-        if (shareListElement.style.visibility === "hidden") {
+        if (shareListElement.style.visibility === "hidden" || boxElement.style.display === "none") {
             shareListElement.style.visibility = "visible";
+            boxElement.style.display = "flex";
         }
         else {
             shareListElement.style.visibility = "hidden";
+            boxElement.style.display = "none";
         }
     });
 
     var shareOnWhatsappButton = document.getElementById("whatsapp");
     shareOnWhatsappButton.addEventListener("click", function () {
-        console.log("share on whatsapp");
+        // console.log("share on whatsapp");
         const whatsappUrl = 'https://api.whatsapp.com/send?text=' + 'https://github.com/chandrudu461/blogful.git';
         window.open(whatsappUrl, '_blank');
 
     });
     var shareOnFacebookButton = document.getElementById("facebook");
     shareOnFacebookButton.addEventListener("click", function () {
-        console.log("share on facebook");
+        // console.log("share on facebook");
         const navUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + 'https://github.com/chandrudu461/blogful.git';
         window.open(navUrl, '_blank');
     });
 
     var shareOnTwitterButton = document.getElementById("twitter");
     shareOnTwitterButton.addEventListener("click", function () {
-        console.log("share on twitter");
+        // console.log("share on twitter");
         const navUrl =
             'https://twitter.com/intent/tweet?text=' +
             'https://github.com/chandrudu461/blogful.git';
@@ -242,10 +297,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         localStorage.setItem("themeMode", themeMode);
         var buttonElements = document.querySelectorAll(".button");
-                if (themeMode === "dark-mode") {
+        var listElements = document.querySelectorAll(".footer a");
+        var footerElements = document.querySelectorAll(".footer");
+        if (themeMode === "dark-mode") {
             buttonElements.forEach(function (button) {
                 button.style.backgroundColor = "#1976D2";
                 button.style.color = "white";
+            });
+            footerElements.forEach(function (element) {
+                element.style.color = "white";
+            })
+            listElements.forEach(function (listElement) {
+                listElement.classList.remove("text-dark");
+                listElement.classList.toggle("text-white");
             });
         }
         else {
@@ -253,6 +317,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 button.style.backgroundColor = "white";
                 button.style.color = "#1976D2";
             });
+            listElements.forEach(function (listElement) {
+                listElement.classList.remove("text-white");
+                // listElement.class += " text-dark";
+                listElement.classList.toggle("text-dark");
+            });
+            // labelElement.style.backgroundColor = "#333";
+            footerElements.forEach(function (element) {
+                element.style.color = "#2b2b2b";
+            })
         }
     })
 });

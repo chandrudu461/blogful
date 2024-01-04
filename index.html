@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +14,8 @@
 
     <body>
         <div id="loading-screen">
-            <p id="loading-message">Loading...</p>
+            <div class="progress-bar"></div>
+            <p id="loading-message">Loading</p>
         </div>
         <div class="header">
             <nav class="navbar navbar-expand-lg bg-dark border-body"
@@ -65,12 +65,16 @@
                                 </div>
                             </li>
                         </ul>
+                        <div id="suggestionContainer"
+                            class="theme-mode white-mode">
+                            <ul id="suggestionList" class="list-group"></ul>
+                        </div>
                     </div>
                 </div>
             </nav>
         </div>
 
-        <div id="search_renderer"></div>
+        <!-- <div id="search_renderer"></div> -->
 
         <!-- <div class="homepage_container">
             <div class="homepage_header">
@@ -150,17 +154,18 @@
         <div class="show_more_div">
             <button class="btn btn-primary" id="show_more">show more</button>
         </div>
-        <div class="row footer p-3 text-center">
-            <div class="col-sm-6 mb-4 text-center">
-                <h5 class="mb-4">Blogful</h5>
+        <div class="row footer text-start"
+            style="padding-left: 20%; padding-right: 20%; padding-bottom: 10%;">
+            <div class="col-sm-6 mt-4 mb-4 ml-6 text-start">
+                <h5 class="footer mb-4">Blogful</h5>
                 <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><a href="#"
+                    <li class="mb-2 footer"><a href="#"
                             class="text-dark">Blogs</a></li>
-                    <li class="mb-2"><a href="#"
+                    <li class="mb-2 footer"><a href="#"
                             class="text-dark">Contact</a></li>
-                    <li class="mb-2"><a href="#" class="text-dark">Quick
+                    <li class="mb-2 footer"><a href="#" class="text-dark">Quick
                             Links</a></li>
-                    <li class="mb-2"><a href="#" class="text-dark">About
+                    <li class="mb-2 footer"><a href="#" class="text-dark">About
                             us</a></li>
                 </ul>
 
@@ -169,16 +174,30 @@
                     <input type="checkbox" id="mode-toggle" />
                     <label for="mode-toggle"></label>
                 </div>
+                <div class="slider mx-auto">
+                    <div class="fontSizeContainer">
+                        <span style="font-size: 14px;">aA</span>
+                        <span style="font-size: 16px;">aA</span>
+                        <span style="font-size: 18px;">aA</span>
+                        <span style="font-size: 20px;">aA</span>
+                        <span style="font-size: 22px;">aA</span>
+                    </div>
+                    <input type="range" id="sliderFontSize" min="1" max="5"
+                        step="1" class="custom-range sliderLine mt-0"
+                        list="tickmarks">
+                    <span id="fontSizeLabel">M</span>
+                </div>
             </div>
             <div class="col-sm-6 text-start">
-                <h5 class="mb-4">Subscribe for Newsletter</h5>
+                <h5 class="footer mb-4">Subscribe for Newsletter</h5>
                 <p class="w-50">Get our hand-picked discoveries & articles
                     delivered right to your inbox.</p>
                 <div class="news-letter mb-3">
                     <form>
-                        <input class="w-50" type="email"
-                            placeholder="Enter your email">
-                        <button class="bg-info" type="submit">SUBMIT</button>
+                        <input class="w-50 px-3 fs-0" type="email"
+                            placeholder="Email Address">
+                        <button class="btn btn-primary"
+                            type="submit">SUBMIT</button>
                     </form>
                 </div>
                 <div class="w-50 social-media">
