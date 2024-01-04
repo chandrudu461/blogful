@@ -11,7 +11,8 @@ body {
     flex-direction: column;
     align-items: flex-start;
     /* justify-content: flex-start; */
-    padding: 8.75rem 13.75rem 3.125rem 13.75rem;
+    /* padding: 8.75rem 13.75rem 3.125rem 13.75rem; */
+    padding: 11.11% 15.28% 4.17% 15.28%;
 }
 
 a {
@@ -59,11 +60,9 @@ p {
 }
 
 .container-2 {
-    /* height: 33.75rem; */
     align-self: stretch;
     border-radius: 1.0625rem;
     position: relative;
-    /* border: 1px solid red; */
 }
 
 p {
@@ -75,7 +74,7 @@ p {
     border-radius: 2.875rem;
     color: #1976D2;
     border: 1px solid #1976D2;
-    width: 6vw;
+    width: 15%;
     margin-top: 1rem;
     line-height: 1.5rem;
     position: absolute;
@@ -145,7 +144,8 @@ p {
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
-    padding: 6.25rem 13.75rem 6.25rem 13.75rem;
+    /* padding: 6.25rem 13.75rem 6.25rem 13.75rem; */
+    padding: 11.11% 15.28% 4.17% 15.28%;
 }
 
 .card {
@@ -158,8 +158,12 @@ p {
     border-radius: 2.875rem;
     color: #1976D2;
     border: 1px solid #1976D2;
-    width: 7vw;
+    width: 70%;
     margin-top: 1rem;
+}
+
+#share_image:hover {
+    cursor: pointer;
 }
 
 .share_list {
@@ -178,4 +182,16 @@ p {
 
 .share_list li {
     padding: 2%;
+}
+
+.share_list li:hover {
+    cursor: pointer;
+}
+
+#share_image {
+    border-radius: 0;
+    transform: rotate(10deg);
+    opacity: 0.5;
+    width: 5%;
+    height: 10%;
 }

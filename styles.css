@@ -128,10 +128,7 @@ desc {
     gap: 0.5rem;
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
-    /* grid-area: 0 1 0 2; */
     align-items: center;
-    /* border: #1976D2 2px solid; */
-    /* padding: 6.25rem 13.75rem 6.25rem 13.75rem; */
     padding: 7% 15.25% 7% 15.25%;
 }
 
@@ -191,12 +188,14 @@ desc {
 }
 
 
+
 /* search stylings  */
 
 #search_renderer {
     display: none;
     position: absolute;
     left: 35%;
+    background-color: white;
     flex-direction: column;
     /* width: 60%; */
     z-index: 2;
@@ -208,11 +207,14 @@ desc {
     font-size: 1.25rem;
 }
 
+#search_renderer .dark-mode {
+    background-color: #2B2B2B;
+}
+
 #search_renderer .search_results:hover {
     cursor: pointer;
 }
 
-/* Style for the article page container */
 #article-container {
     max-width: 800px;
     margin: 20px auto;
@@ -270,16 +272,24 @@ desc {
 
 /* Dark Mode Styles */
 body.dark-mode {
-    background-color: #333;
+    background-color: #2B2B2B;
     color: #fff;
+
+    .container-2>* {
+        background-color: #2B2B2B;
+        color: white;
+
+        p {
+            color: white;
+        }
+    }
 }
 
 /* Add more specific dark mode styles as needed */
 
 @media (max-width:700px) and (min-width:375px) {
 
-    .container-2 btn {
-        width: 100%;
-        border: 3px solid red !important;
+    #main btn {
+        border: 1px solid red;
     }
 }

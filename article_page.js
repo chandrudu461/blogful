@@ -13,19 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
         description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
     };
 
-    function shareOnWhatsapp() {
-        console.log("sharing on whatsapp");
-    }
-    function shareOnFacebook() {
-        console.log("sharing on facebook");
-    }
-    function shareOnInstagram() {
-        console.log("sharing on instagram");
-    }
-    function shareOnTwitter() {
-        console.log("sharing on Twitter");
-    }
-
     function getBlogPostData() {
         var blogPostData = JSON.parse(localStorage.getItem("selectedBlogPost"));
         // console.log(blogPostData);
@@ -36,7 +23,21 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderArticle() {
         var blogPostData = getBlogPostData();
 
+
+
         if (blogPostData) {
+            function shareOnWhatsapp() {
+                console.log("sharing on whatsapp");
+            }
+            function shareOnFacebook() {
+                console.log("sharing on facebook");
+            }
+            function shareOnInstagram() {
+                console.log("sharing on instagram");
+            }
+            function shareOnTwitter() {
+                console.log("sharing on Twitter");
+            }
             var articleDiv = document.createElement("div");
             articleDiv.className = "article-content";
             articleDiv.innerHTML = `
@@ -51,12 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
             <img src="assets/author_image.png" alt="author_image">
             <p>${blogPostData.fullname} | ${blogPostData.jobTitle}</p>
             <p>${blogPostData.date} | ${blogPostData.readingTime}</p>
-            <img id="share_image" src="assets/author_image.png" alt="share_image">
+            <img id="share_image" src="assets/share_image.png" alt="share_image">
             <ul class="share_list" id="share_list">
-                <li onclick="shareOnWhatsapp()">Whatsapp</li>
-                <li onclick="shareOnInstagram()">Instagram</li>
-                <li onclick="shareOnFacebook()">Facebook</li>
-                <li onclick="shareOnTwitter()">Twitter</li>
+                <li id="whatsapp">Whatsapp</li>
+                <li id="facebook">Facebook</li>
+                <li id="twitter">Twitter</li>
             </ul>
         </div>
         <img class="image" src="assets/image1.jpg" alt="image1">
@@ -144,6 +144,9 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(relatedPosts);
         var i = randomGenerate(relatedPosts.length);
         var j = randomGenerate(relatedPosts.length);
+        while (i === j) {
+            j = randomGenerate(relatedPosts.length);
+        }
         var newRelatedPosts = [relatedPosts[i], relatedPosts[j]];
         var length = 0;
         newRelatedPosts.forEach((post) => {
@@ -189,5 +192,33 @@ document.addEventListener("DOMContentLoaded", function () {
         else {
             shareListElement.style.visibility = "hidden";
         }
+    });
+
+    var shareOnWhatsappButton = document.getElementById("whatsapp");
+    shareOnWhatsappButton.addEventListener("click", function () {
+        console.log("share on whatsapp");
+        const whatsappUrl = 'https://api.whatsapp.com/send?text=' + 'https://github.com/chandrudu461/blogful.git';
+        window.open(whatsappUrl, '_blank');
+
+    });
+    var shareOnFacebookButton = document.getElementById("facebook");
+    shareOnFacebookButton.addEventListener("click", function () {
+        console.log("share on facebook");
+        const navUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + 'https://github.com/chandrudu461/blogful.git';
+        window.open(navUrl, '_blank');
+    });
+    // var shareOnInstagramButton = document.getElementById("instagram");
+    // shareOnInstagramButton.addEventListener("click", function () {
+    //     console.log("share on instagram");
+    //     const navUrl = 'https://www.instagram.com/';
+    //     window.open(navUrl, '_blank');
+    // });
+    var shareOnTwitterButton = document.getElementById("twitter");
+    shareOnTwitterButton.addEventListener("click", function () {
+        console.log("share on twitter");
+        const navUrl =
+            'https://twitter.com/intent/tweet?text=' +
+            'https://github.com/chandrudu461/blogful.git';
+        window.open(navUrl, '_blank');
     });
 });

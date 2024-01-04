@@ -2,6 +2,7 @@ import data from "./data.js";
 
 const searchBtn = document.getElementById("btn-search");
 const searchBar = document.getElementById("search");
+var themeMode = "white-mode";
 
 searchBtn.addEventListener("click", function () {
     searchBar.classList.toggle("hidden");
@@ -45,7 +46,7 @@ function renderPosts(startIndex, endIndex) {
         blogPostDiv.className = "card";
         blogPostDiv.innerHTML = ` 
                 <img src="assets/image1.jpg" alt="${post.title}">
-                <button type="button" class="btn btn-outline-primary rounded-top-4 rounded-bottom-4">${post.category}</button>
+                <button type="button" class="btn button rounded-top-4 rounded-bottom-4">${post.category}</button>
                 <div class="frame_content">
                     <p>${post.fullname} | ${post.jobTitle} | ${post.readingTime}</p>
                     <p>${post.date}</p>
@@ -86,6 +87,19 @@ searchBar.addEventListener("input", function () {
     renderSearchResults(searchValue);
 });
 
+document.body.addEventListener("click", function (event) {
+    var clickedElement = event.target;
+    var searchRendererEl = document.querySelector("#search_renderer");
+
+    if (
+        clickedElement !== searchBar &&
+        !searchRendererEl.contains(clickedElement)
+    ) {
+        searchRendererEl.style.display = "none";
+        console.log("clicked outside");
+    }
+});
+
 function renderSearchResults(searchValue) {
     var searchRendererEl = document.querySelector("#search_renderer");
     searchRendererEl.style.display = "flex";
@@ -96,6 +110,13 @@ function renderSearchResults(searchValue) {
     searchResults.forEach(post => {
         var blogPostDiv = document.createElement("div");
         blogPostDiv.className = "search_results";
+        console.log(themeMode);
+        if (themeMode === "dark-mode") {
+            blogPostDiv.className += " dark-mode";
+        }
+        else {
+            blogPostDiv.classList.remove("dark-mode");
+        }
         blogPostDiv.innerHTML = `
             ${post.title}
         `;
@@ -104,14 +125,53 @@ function renderSearchResults(searchValue) {
             window.location.href = "article_page.html";
         });
         searchRendererEl.appendChild(blogPostDiv);
+        searchRendererEl.style.display = "flex";
     });
 }
 
 const modeToggle = document.getElementById("mode-toggle");
 const body = document.body;
 
+var buttonElements = document.querySelectorAll(".button");
+
 modeToggle.addEventListener("change", function () {
+    if (themeMode !== "white-mode") {
+        themeMode = "white-mode";
+    }
+    else {
+        themeMode = "dark-mode";
+    }
+    console.log(themeMode);
+    console.log(themeMode === "white-mode");
     body.classList.toggle("dark-mode");
+    var searchResultsElements = document.querySelectorAll(".search_results");
+    console.log(searchResultsElements);
+
+    if (body.classList.contains("dark-mode")) {
+        buttonElements.forEach(function (button) {
+            button.style.backgroundColor = "#1976D2";
+            button.style.color = "white";
+        });
+        searchResultsElements.backgroundColor = "blue";
+        // console.log(searchRendererEl);
+    }
+    else {
+        buttonElements.forEach(function (button) {
+            button.style.backgroundColor = "white";
+            button.style.color = "#1976D2";
+            searchResultsElements.backgroundColor = "white";
+        });
+    }
+
+    // var searchRendererEl = document.querySelector("#search_renderer");
+    // searchRendererEl.backgroundColor = "black";
+    // var searchResultsElements = document.querySelectorAll(".search_results");
+    // console.log(searchResultsElements);
+    // searchResultsElements.forEach((child) => {
+    //     console.log(child);
+    // });
+    // searchRendererEl.color = "white";
+    // buttonElements.classList.backgroundColor = "blue";
 });
 
 
