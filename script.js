@@ -2,8 +2,6 @@ import data from "./data.js";
 
 const searchBtn = document.getElementById("btn-search");
 const searchBar = document.getElementById("search");
-var themeMode = "white-mode";
-
 searchBtn.addEventListener("click", function () {
     searchBar.classList.toggle("hidden");
 });
@@ -18,6 +16,7 @@ var blogData = data;
 // navbar activeness
 
 var navLinks = document.querySelectorAll(".navbar-nav a");
+var themeMode = localStorage.getItem("themeMode") || "white-mode";
 
 navLinks.forEach(function (link) {
     link.addEventListener("click", function () {
@@ -40,7 +39,7 @@ function renderPosts(startIndex, endIndex) {
             return post.category === currentFilter
         });
     }
-    console.log(blogData);
+    // console.log(blogData);
     blogData.slice(startIndex, endIndex).forEach(post => {
         var blogPostDiv = document.createElement("div");
         blogPostDiv.className = "card";
@@ -56,7 +55,7 @@ function renderPosts(startIndex, endIndex) {
                     <p>${post.description}</p>
                 </div>
             `;
-        console.log(post.category);
+        // console.log(post.category);
         blogPostDiv.addEventListener("click", function () {
             localStorage.setItem("selectedBlogPost", JSON.stringify(post));
             window.location.href = "article_page.html";
@@ -70,7 +69,7 @@ function showMore() {
     var startIndex = renderedPosts;
     var endIndex = startIndex + postsPerPage;
 
-    console.log(startIndex, endIndex);
+    // console.log(startIndex, endIndex);
     renderPosts(startIndex, endIndex);
 
     if (renderedPosts >= blogData.length) {
@@ -87,6 +86,9 @@ searchBar.addEventListener("input", function () {
     renderSearchResults(searchValue);
 });
 
+
+document.body.classList.toggle("dark-mode", themeMode === "dark-mode");
+
 document.body.addEventListener("click", function (event) {
     var clickedElement = event.target;
     var searchRendererEl = document.querySelector("#search_renderer");
@@ -96,7 +98,7 @@ document.body.addEventListener("click", function (event) {
         !searchRendererEl.contains(clickedElement)
     ) {
         searchRendererEl.style.display = "none";
-        console.log("clicked outside");
+        // console.log("clicked outside");
     }
 });
 
@@ -110,7 +112,7 @@ function renderSearchResults(searchValue) {
     searchResults.forEach(post => {
         var blogPostDiv = document.createElement("div");
         blogPostDiv.className = "search_results";
-        console.log(themeMode);
+        // console.log(themeMode);
         if (themeMode === "dark-mode") {
             blogPostDiv.className += " dark-mode";
         }
@@ -141,19 +143,18 @@ modeToggle.addEventListener("change", function () {
     else {
         themeMode = "dark-mode";
     }
-    console.log(themeMode);
-    console.log(themeMode === "white-mode");
+    localStorage.setItem("themeMode", themeMode);
+
     body.classList.toggle("dark-mode");
     var searchResultsElements = document.querySelectorAll(".search_results");
-    console.log(searchResultsElements);
+    // console.log(searchResultsElements);
 
-    if (body.classList.contains("dark-mode")) {
+    if (themeMode === "dark-mode") {
         buttonElements.forEach(function (button) {
             button.style.backgroundColor = "#1976D2";
             button.style.color = "white";
         });
         searchResultsElements.backgroundColor = "blue";
-        // console.log(searchRendererEl);
     }
     else {
         buttonElements.forEach(function (button) {
@@ -162,37 +163,18 @@ modeToggle.addEventListener("change", function () {
             searchResultsElements.backgroundColor = "white";
         });
     }
-
-    // var searchRendererEl = document.querySelector("#search_renderer");
-    // searchRendererEl.backgroundColor = "black";
-    // var searchResultsElements = document.querySelectorAll(".search_results");
-    // console.log(searchResultsElements);
-    // searchResultsElements.forEach((child) => {
-    //     console.log(child);
-    // });
-    // searchRendererEl.color = "white";
-    // buttonElements.classList.backgroundColor = "blue";
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const loadingScreen = document.getElementById('loading-screen');
+    const loadingMessage = document.getElementById('loading-message');
 
+    // Show loading screen
+    loadingScreen.style.display = 'flex';
 
-
-// var mainElement = document.getElementById("main");
-//         data.forEach(post => {
-//             var blogPostDiv = document.createElement("div");
-//             blogPostDiv.className = "card";
-//             blogPostDiv.innerHTML = `
-//                 <img src="assets/image1.jpg" alt="${post.title}">
-//                 <button type="button" class="btn btn-outline-primary rounded-top-4 rounded-bottom-4">${post.category}</button>
-//                 <div class="frame_content">
-//                     <p>${post.fullname} | ${post.jobTitle} | ${post.readingTime}</p>
-//                     <p>${post.date}</p>
-//                 </div>
-//                 <div class="desc">
-//                     <h2>${post.title}</h2>
-//                     <p>${post.description}</p>
-//                     <p><a href="#">Learn more</a></p>
-//                 </div>
-//             `;
-//             mainElement.appendChild(blogPostDiv);
-//         });
+    // Simulate a delay using setTimeout
+    setTimeout(function () {
+        // Hide loading screen after the timeout
+        loadingScreen.style.display = 'none';
+    }, 2000); // Adjust the timeout duration as needed
+});

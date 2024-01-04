@@ -187,10 +187,6 @@ desc {
     border-radius: 50%;
 }
 
-
-
-/* search stylings  */
-
 #search_renderer {
     display: none;
     position: absolute;
@@ -285,11 +281,27 @@ body.dark-mode {
     }
 }
 
-/* Add more specific dark mode styles as needed */
+#loading-screen {
+    display: flex;
+    position: fixed;
+    /* Fixed position */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Cover the full width */
+    height: 100%;
+    /* Cover the full height */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent background */
+    z-index: 1000;
+    /* Ensure it's on top */
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
+}
 
-@media (max-width:700px) and (min-width:375px) {
-
-    #main btn {
-        border: 1px solid red;
-    }
+#loading-message {
+    font-size: 24px;
+    color: white;
 }

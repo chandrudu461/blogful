@@ -195,3 +195,85 @@ p {
     width: 5%;
     height: 10%;
 }
+
+
+.mode-switch {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+}
+
+.mode-switch input {
+    display: none;
+}
+
+.mode-switch label {
+    position: absolute;
+    top: 10%;
+    left: 70%;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.mode-switch label:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.mode-switch input:checked+label {
+    background-color: #333;
+}
+
+.mode-switch input:checked+label:before {
+    transform: translateX(20px) translateY(-50%);
+}
+
+body.dark-mode {
+    background-color: #2B2B2B;
+    color: #fff;
+
+    .container-5>* {
+        background-color: #2B2B2B;
+        color: white;
+
+        p {
+            color: white;
+        }
+    }
+}
+
+#loading-screen {
+    display: flex;
+    position: fixed;
+    /* Fixed position */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Cover the full width */
+    height: 100%;
+    /* Cover the full height */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent background */
+    z-index: 1000;
+    /* Ensure it's on top */
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
+}
+
+#loading-message {
+    font-size: 24px;
+    color: white;
+    margin-left: 50%;
+}

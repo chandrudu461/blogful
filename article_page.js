@@ -13,6 +13,16 @@ document.addEventListener("DOMContentLoaded", function () {
         description: 'A glimpse into the latest technological advancements and their potential impact on various industries.',
     };
 
+    var themeMode = localStorage.getItem("themeMode") || "white-mode";
+    document.body.classList.toggle("dark-mode", themeMode === "dark-mode");
+
+    const loadingScreen = document.getElementById('loading-screen');
+    loadingScreen.style.display = 'flex';
+    setTimeout(function () {
+        // Hide loading screen after the timeout
+        loadingScreen.style.display = 'none';
+    }, 2000);
+
     function getBlogPostData() {
         var blogPostData = JSON.parse(localStorage.getItem("selectedBlogPost"));
         // console.log(blogPostData);
@@ -154,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
             blogPostDiv.className = "card";
             blogPostDiv.innerHTML = ` 
                 <img src="assets/image1.jpg" alt="${post.title}">
-                <button type="button" class="btn btn-outline-primary rounded-top-4 rounded-bottom-4">${post.category}</button>
+                <button type="button" class="btn button rounded-top-4 rounded-bottom-4">${post.category}</button>
                 <div class="frame_content">
                     <p>${post.fullname} | ${post.jobTitle} | ${post.readingTime}</p>
                     <p>${post.date}</p>
@@ -207,12 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const navUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + 'https://github.com/chandrudu461/blogful.git';
         window.open(navUrl, '_blank');
     });
-    // var shareOnInstagramButton = document.getElementById("instagram");
-    // shareOnInstagramButton.addEventListener("click", function () {
-    //     console.log("share on instagram");
-    //     const navUrl = 'https://www.instagram.com/';
-    //     window.open(navUrl, '_blank');
-    // });
+
     var shareOnTwitterButton = document.getElementById("twitter");
     shareOnTwitterButton.addEventListener("click", function () {
         console.log("share on twitter");
@@ -221,4 +226,33 @@ document.addEventListener("DOMContentLoaded", function () {
             'https://github.com/chandrudu461/blogful.git';
         window.open(navUrl, '_blank');
     });
+
+
+    const modeToggle = document.getElementById("mode-toggle");
+    const body = document.body;
+
+    modeToggle.addEventListener("change", function () {
+        if (themeMode !== "white-mode") {
+            themeMode = "white-mode";
+        }
+        else {
+            themeMode = "dark-mode";
+        }
+        body.classList.toggle("dark-mode");
+
+        localStorage.setItem("themeMode", themeMode);
+        var buttonElements = document.querySelectorAll(".button");
+                if (themeMode === "dark-mode") {
+            buttonElements.forEach(function (button) {
+                button.style.backgroundColor = "#1976D2";
+                button.style.color = "white";
+            });
+        }
+        else {
+            buttonElements.forEach(function (button) {
+                button.style.backgroundColor = "white";
+                button.style.color = "#1976D2";
+            });
+        }
+    })
 });
