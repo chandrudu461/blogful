@@ -34,7 +34,7 @@ p {
 
     /* Body text */
     font-family: Epilogue;
-    font-size: 1rem;
+    /* font-size: 1rem; */
     font-style: normal;
     font-weight: 400;
     line-height: 1.5rem;
@@ -70,16 +70,23 @@ p {
 }
 
 .container-1 .btn {
+    /* flex-shrink: 0;
+    border-radius: 2.875rem;
+    color: #1976D2;
+    border: 1px solid #1976D2;
+    width: 15%;*/
+    line-height: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 0.5rem;
+
     flex-shrink: 0;
     border-radius: 2.875rem;
     color: #1976D2;
     border: 1px solid #1976D2;
-    width: 15%;
+    width: 7rem;
     margin-top: 1rem;
-    line-height: 1.5rem;
-    position: absolute;
-    top: 0;
-    right: 0;
 }
 
 .container-2 a {
@@ -163,7 +170,7 @@ p {
     border-radius: 2.875rem;
     color: #1976D2;
     border: 1px solid #1976D2;
-    width: 70%;
+    width: 7rem;
     margin-top: 1rem;
 }
 
@@ -413,4 +420,58 @@ body.dark-mode {
     font-weight: bold;
     text-align: center;
     margin-top: 10px;
+}
+
+
+@media (min-width: 375px) and (max-width: 700px) {
+    .container-2 {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 2rem 1rem 2rem;
+    }
+
+    .container-2>* {
+        width: 100%;
+    }
+
+    nav {
+        position: fixed;
+        z-index: 1000;
+        background-color: #2B2B2B;
+        width: 100%;
+    }
+
+    .mode-switch label {
+        position: absolute;
+        top: 10%;
+        left: 125%;
+    }
+}
+
+
+#suggestionContainer {
+    position: absolute;
+    top: 80px;
+    width: 50vw;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+}
+
+#suggestionList {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#suggestionList>*:hover {
+    cursor: pointer;
+}
+
+
+li .list-group-item {
+    background-color: white;
+    color: #2B2B2B;
 }

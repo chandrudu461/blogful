@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
             articleDiv.innerHTML = `
             <div class="back">
             <img src="assets/back.svg" alt="back">
-            <a href="index.html">back</a>
+            <a href="index.html" id="backElement">back</a>
         </div>
         <div class="title">
             <h1>${blogPostData.title}</h1>
@@ -216,6 +216,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var listElements = document.querySelectorAll(".footer a");
     var footerElements = document.querySelectorAll(".footer");
     var boxElement = document.querySelector(".box");
+    var backElement = document.querySelector("#backElement");
+    console.log(backElement);
     if (themeMode === "dark-mode") {
         buttonElements.forEach(function (button) {
             button.style.backgroundColor = "#1976D2";
@@ -229,6 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
             listElement.classList.toggle("text-white");
         });
         boxElement.style.backgroundColor = "#2b2b2b";
+        backElement.style.color = "white";
     }
     else {
         buttonElements.forEach(function (button) {
@@ -243,6 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
             element.style.color = "black";
         })
         boxElement.style.backgroundColor = "white";
+        backElement.style.color = "#2b2b2b";
     }
 
     // share image
@@ -301,6 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var listElements = document.querySelectorAll(".footer a");
         var footerElements = document.querySelectorAll(".footer");
         var boxElement = document.querySelector(".box");
+        var backElement = document.querySelector("#backElement");
         if (themeMode === "dark-mode") {
             buttonElements.forEach(function (button) {
                 button.style.backgroundColor = "#1976D2";
@@ -314,6 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 listElement.classList.toggle("text-white");
             });
             boxElement.style.backgroundColor = "#2b2b2b";
+            backElement.style.color = "white";
         }
         else {
             buttonElements.forEach(function (button) {
@@ -330,19 +336,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 element.style.color = "#2b2b2b";
             })
             boxElement.style.backgroundColor = "white";
+            backElement.style.color = "#2b2b2b";
         }
     })
 
     const fontSlider = document.getElementById('sliderFontSize');
 
-    var h2Elements = document.querySelector("h2");
-    var pElements = document.querySelector("p");
+    var h2Elements = document.querySelectorAll("h2");
+    var pElements = document.querySelectorAll("p");
 
     fontSlider.addEventListener('input', () => {
         const fontSize = getFontSizeFromSliderValue(fontSlider.value);
+        console.log(pElements);
         pElements.forEach(function (element) {
             element.fontSize = fontSize;
-        });
+        })
         const h2FontSize = getH2FontSize(fontSlider.value);
         document.body.style.fontSize = `${fontSize}rem`;
         console.log(document.body.style.fontSize);
@@ -355,4 +363,85 @@ document.addEventListener("DOMContentLoaded", function () {
     function getH2FontSize(sliderValue) {
         return sliderValue * 0.25 + 0.5;
     }
+
+
+    const searchBtn = document.getElementById("btn-search");
+    const searchBar = document.getElementById("search");
+    searchBar.setAttribute("autoComplete", "off");
+    searchBtn.addEventListener("click", function () {
+        searchBar.classList.toggle("hidden");
+    });
+
+    searchBar.addEventListener("input", function () {
+        var searchValue = searchBar.value.toLowerCase();
+        renderSearchResults(searchValue);
+    });
+
+
+    document.body.addEventListener("click", function (event) {
+        var clickedElement = event.target;
+        const suggestionContainerElement = document.getElementById("suggestionContainer");
+        const searchResultElements = document.querySelectorAll("#suggestionList");
+
+        if (
+            clickedElement !== searchBar &&
+            !Array.from(searchResultElements).includes(clickedElement)
+        ) {
+            suggestionContainerElement.style.display = "none";
+            searchBar.value = "";
+            suggestionContainerElement.style.display = "none";
+        }
+    });
+
+    function renderSearchResults(searchValue) {
+        var searchResults = data.filter(post => post.title.toLowerCase().includes(searchValue));
+        const suggestionListElement = document.getElementById("suggestionList");
+        const suggestionContainerElement = document.getElementById("suggestionContainer");
+
+
+        if (themeMode === "white-mode") {
+            suggestionContainerElement.classList.remove('dark-mode', 'white-mode');
+            suggestionContainerElement.classList.add("white-mode");
+        }
+        else {
+            suggestionContainerElement.classList.remove('dark-mode', 'white-mode');
+            suggestionContainerElement.classList.add("dark-mode");
+        }
+
+        suggestionListElement.innerHTML = '';
+        // Display new suggestions
+        searchResults.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('list-group-item');
+            listItem.textContent = item.title;
+            listItem.addEventListener("click", function () {
+                localStorage.setItem("selectedBlogPost", JSON.stringify(item));
+                localStorage.setItem("currentFilter", currentFilter);
+                window.location.href = "article_page.html";
+            })
+            suggestionListElement.appendChild(listItem);
+            console.log(themeMode);
+
+            suggestionContainerElement.style.display = "block";
+        });
+
+
+    }
+
+    document.body.addEventListener("click", function (event) {
+        var clickedElement = event.target;
+        const suggestionContainerElement = document.getElementById("suggestionContainer");
+        const searchResultElements = document.querySelectorAll("#suggestionList");
+
+        if (
+            clickedElement !== searchBar &&
+            !Array.from(searchResultElements).includes(clickedElement)
+        ) {
+            suggestionContainerElement.style.display = "none";
+            searchBar.value = "";
+            suggestionContainerElement.style.display = "none";
+        }
+    });
+
+
 });
