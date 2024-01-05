@@ -16,7 +16,7 @@ body {
 }
 
 a {
-    color: #A0A1A4;
+    color: #2B2B2B;
     text-decoration: none;
 }
 
@@ -376,4 +376,41 @@ body.dark-mode {
 .box .share-item:hover {
     background-color: #F4F6F8;
     cursor: pointer;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+/* .slider */
+
+.slider {
+    max-width: 300px;
+    /* border: 2px solid black; */
+    margin: 0;
+}
+
+.fontSizeContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fontSizeContainer span {
+    display: block;
+    text-align: center;
+    width: 20%;
+}
+
+#sliderFontSize {
+    width: 100%;
+}
+
+#fontSizeLabel {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
 }

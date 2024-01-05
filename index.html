@@ -62,13 +62,15 @@
                                             src="assets/Search.png"
                                             alt="search_icon"
                                             class="sx-2"></button>
+
+                                    <div id="suggestionContainer"
+                                        class="white-mode">
+                                        <ul id="suggestionList"
+                                            class="list-group"></ul>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
-                        <div id="suggestionContainer"
-                            class="theme-mode white-mode">
-                            <ul id="suggestionList" class="list-group"></ul>
-                        </div>
                     </div>
                 </div>
             </nav>
@@ -190,7 +192,7 @@
                 </div>
                 <div class="w-50 social-media">
                     <h5 class="mb-3">Follow on</h5>
-                    <div class="logo-list">
+                    <div class="logo-list list-container">
                         <ul class="list-unstyled">
                             <li><img
                                     src="assets/discord.jpeg"
@@ -222,7 +224,6 @@
                 <input type="range" id="sliderFontSize" min="1" max="5"
                     step="1" class="custom-range sliderLine mt-0"
                     list="tickmarks">
-                <span id="fontSizeLabel"></span>
             </div>
         </div>
         <script

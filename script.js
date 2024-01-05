@@ -56,7 +56,7 @@ function renderPosts(startIndex, endIndex) {
         }
         if (count == 0) {
             var trendingTopics = document.createElement("h2");
-            trendingTopics.textContent = "Today's Pics";
+            trendingTopics.textContent = "Today's Picks";
             mainElement.appendChild(trendingTopics);
         }
         var blogPostDiv = document.createElement("div");
@@ -113,11 +113,11 @@ if (themeMode === "dark-mode") {
     footerElements.forEach(function (element) {
         element.style.color = "white";
     })
-    searchResultsElements.backgroundColor = "#2b2b2b";
     listElements.forEach(function (listElement) {
         listElement.classList.remove("text-dark");
         listElement.classList.toggle("text-white");
     });
+    searchResultsElements.backgroundColor = "#2b2b2b";
 }
 else {
     buttonElements.forEach(function (button) {
@@ -274,8 +274,6 @@ modeToggle.addEventListener("change", function () {
 });
 
 const fontSlider = document.getElementById('sliderFontSize');
-const fontSizeLabel = document.getElementById('fontSizeLabel');
-const sizes = ['XS', 'S', 'M', 'L', 'XL'];
 
 var h2Elements = document.querySelector("h2");
 
@@ -284,7 +282,6 @@ fontSlider.addEventListener('input', () => {
     const h2FontSize = getH2FontSize(fontSlider.value);
     document.body.style.fontSize = `${fontSize}rem`;
     console.log(document.body.style.fontSize);
-    fontSizeLabel.textContent = sizes[fontSlider.value - 1];
 });
 
 function getFontSizeFromSliderValue(sliderValue) {

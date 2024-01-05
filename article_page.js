@@ -215,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var buttonElements = document.querySelectorAll(".button");
     var listElements = document.querySelectorAll(".footer a");
     var footerElements = document.querySelectorAll(".footer");
+    var boxElement = document.querySelector(".box");
     if (themeMode === "dark-mode") {
         buttonElements.forEach(function (button) {
             button.style.backgroundColor = "#1976D2";
@@ -227,6 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
             listElement.classList.remove("text-dark");
             listElement.classList.toggle("text-white");
         });
+        boxElement.style.backgroundColor = "#2b2b2b";
     }
     else {
         buttonElements.forEach(function (button) {
@@ -235,13 +237,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         listElements.forEach(function (listElement) {
             listElement.classList.remove("text-white");
-            // listElement.class += " text-dark";
             listElement.classList.toggle("text-dark");
         });
-        // labelElement.style.backgroundColor = "#333";
         footerElements.forEach(function (element) {
-            element.style.color = "#2b2b2b";
+            element.style.color = "black";
         })
+        boxElement.style.backgroundColor = "white";
     }
 
     // share image
@@ -299,6 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var buttonElements = document.querySelectorAll(".button");
         var listElements = document.querySelectorAll(".footer a");
         var footerElements = document.querySelectorAll(".footer");
+        var boxElement = document.querySelector(".box");
         if (themeMode === "dark-mode") {
             buttonElements.forEach(function (button) {
                 button.style.backgroundColor = "#1976D2";
@@ -311,6 +313,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 listElement.classList.remove("text-dark");
                 listElement.classList.toggle("text-white");
             });
+            boxElement.style.backgroundColor = "#2b2b2b";
         }
         else {
             buttonElements.forEach(function (button) {
@@ -326,6 +329,30 @@ document.addEventListener("DOMContentLoaded", function () {
             footerElements.forEach(function (element) {
                 element.style.color = "#2b2b2b";
             })
+            boxElement.style.backgroundColor = "white";
         }
     })
+
+    const fontSlider = document.getElementById('sliderFontSize');
+
+    var h2Elements = document.querySelector("h2");
+    var pElements = document.querySelector("p");
+
+    fontSlider.addEventListener('input', () => {
+        const fontSize = getFontSizeFromSliderValue(fontSlider.value);
+        pElements.forEach(function (element) {
+            element.fontSize = fontSize;
+        });
+        const h2FontSize = getH2FontSize(fontSlider.value);
+        document.body.style.fontSize = `${fontSize}rem`;
+        console.log(document.body.style.fontSize);
+    });
+
+    function getFontSizeFromSliderValue(sliderValue) {
+        return sliderValue * 0.25 + 0.25;
+    }
+
+    function getH2FontSize(sliderValue) {
+        return sliderValue * 0.25 + 0.5;
+    }
 });
