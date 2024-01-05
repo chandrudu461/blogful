@@ -33,7 +33,6 @@ navLinks.forEach(function (link) {
         showMore();
     });
 });
-
 function renderPosts(startIndex, endIndex) {
     console.log(currentFilter);
     if (currentFilter !== "All") {
@@ -45,7 +44,21 @@ function renderPosts(startIndex, endIndex) {
     else {
         blogData = data;
     }
+    var count = 0;
     blogData.slice(startIndex, endIndex).forEach(post => {
+        console.log(count);
+        if (count === 3) {
+            var trendingTopics = document.createElement("h2");
+            var trendingTopics2 = document.createElement("h2");
+            trendingTopics.textContent = "Trending Topics";
+            mainElement.appendChild(trendingTopics);
+            mainElement.appendChild(trendingTopics2);
+        }
+        if (count == 0) {
+            var trendingTopics = document.createElement("h2");
+            trendingTopics.textContent = "Today's Pics";
+            mainElement.appendChild(trendingTopics);
+        }
         var blogPostDiv = document.createElement("div");
         blogPostDiv.className = "card";
         blogPostDiv.innerHTML = ` 
@@ -67,6 +80,7 @@ function renderPosts(startIndex, endIndex) {
             localStorage.setItem("currentFilter", currentFilter);
             window.location.href = "article_page.html";
         });
+        count++;
         mainElement.appendChild(blogPostDiv);
     });
     renderedPosts += endIndex - startIndex;
@@ -113,8 +127,8 @@ else {
             element.style.color = "#2b2b2b";
         })
         listElements.forEach(function (listElement) {
-            // listElement.classList.remove("text-white");
-            // listElement.classList.toggle("text-dark");
+            listElement.classList.remove("text-white");
+            listElement.classList.toggle("text-dark");
         });
         searchResultsElements.backgroundColor = "white";
     });
@@ -150,7 +164,7 @@ function renderSearchResults(searchValue) {
     const suggestionListElement = document.getElementById("suggestionList");
     const suggestionContainerElement = document.getElementById("suggestionContainer");
 
-    
+
     if (themeMode === "white-mode") {
         suggestionContainerElement.classList.remove('dark-mode', 'white-mode');
         suggestionContainerElement.classList.add("white-mode");
@@ -250,7 +264,6 @@ modeToggle.addEventListener("change", function () {
         searchResultsElements.backgroundColor = "white";
         listElements.forEach(function (listElement) {
             listElement.classList.remove("text-white");
-            // listElement.class += " text-dark";
             listElement.classList.toggle("text-dark");
         });
         // labelElement.style.backgroundColor = "#333";
