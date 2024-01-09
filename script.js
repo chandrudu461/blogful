@@ -14,8 +14,6 @@ var renderedPosts = 0;
 var currentFilter = "All";
 var blogData = data;
 
-// navbar activeness
-
 var navLinks = document.querySelectorAll(".navbar-nav a");
 var themeMode = localStorage.getItem("themeMode") || "white-mode";
 
@@ -34,7 +32,7 @@ navLinks.forEach(function (link) {
     });
 });
 function renderPosts(startIndex, endIndex) {
-    console.log(currentFilter);
+    // console.log(currentFilter);
     if (currentFilter !== "All") {
         blogData = data.filter((post) => post.category === currentFilter);
         blogData = data.filter((post) => {
@@ -46,7 +44,7 @@ function renderPosts(startIndex, endIndex) {
     }
     var count = 0;
     blogData.slice(startIndex, endIndex).forEach(post => {
-        console.log(count);
+        // console.log(count);
         if (count === 3) {
             var trendingTopics = document.createElement("h2");
             var trendingTopics2 = document.createElement("h2");
@@ -76,9 +74,15 @@ function renderPosts(startIndex, endIndex) {
             `;
         // console.log(post.category);
         blogPostDiv.addEventListener("click", function () {
-            localStorage.setItem("selectedBlogPost", JSON.stringify(post));
+            const urlParams = new URLSearchParams();
+            urlParams.set("id", post.id);
+            const queryString = urlParams.toString();
+            // localStorage.setItem("selectedBlogPost", JSON.stringify(post));
             localStorage.setItem("currentFilter", currentFilter);
-            window.location.href = "article_page.html";
+            // let id = post.id;
+            console.log(post.id);
+            // window.location.href = "article_page.html" + (queryString ? `?${queryString}` : "");
+            window.location.href = `article_page.html?{post.id}`;
         });
         count++;
         mainElement.appendChild(blogPostDiv);
@@ -104,7 +108,7 @@ var searchResultsElements = document.querySelectorAll(".search_results");
 var footerElements = document.querySelectorAll(".footer");
 var listElements = document.querySelectorAll(".footer a");
 
-console.log(footerElements);
+// console.log(footerElements);
 if (themeMode === "dark-mode") {
     buttonElements.forEach(function (button) {
         button.style.backgroundColor = "#1976D2";
@@ -141,7 +145,6 @@ searchBar.addEventListener("input", function () {
     renderSearchResults(searchValue);
 });
 
-
 document.body.classList.toggle("dark-mode", themeMode === "dark-mode");
 
 document.body.addEventListener("click", function (event) {
@@ -164,7 +167,6 @@ function renderSearchResults(searchValue) {
     const suggestionListElement = document.getElementById("suggestionList");
     const suggestionContainerElement = document.getElementById("suggestionContainer");
 
-
     if (themeMode === "white-mode") {
         suggestionContainerElement.classList.remove('dark-mode', 'white-mode');
         suggestionContainerElement.classList.add("white-mode");
@@ -186,40 +188,10 @@ function renderSearchResults(searchValue) {
             window.location.href = "article_page.html";
         })
         suggestionListElement.appendChild(listItem);
-        console.log(themeMode);
+        // console.log(themeMode);
 
         suggestionContainerElement.style.display = "block";
     });
-
-
-    // var searchRendererEl = document.querySelector("#search_renderer");
-    // searchRendererEl.style.display = "flex";
-
-    // searchRendererEl.innerHTML = "";
-    // var searchResults = data.filter(post => post.title.toLowerCase().includes(searchValue));
-
-    // searchResults.forEach(post => {
-    //     var blogPostDiv = document.createElement("div");
-    //     blogPostDiv.className = "search_results";
-    //     // console.log(themeMode);
-    //     if (themeMode === "dark-mode") {
-    //         blogPostDiv.className += " dark-mode";
-    //     }
-    //     else {
-    //         blogPostDiv.classList.remove("dark-mode");
-    //     }
-    //     blogPostDiv.innerHTML = `
-    //         ${post.title}
-    //     `;
-    //     blogPostDiv.addEventListener("click", function () {
-    //         localStorage.setItem("selectedBlogPost", JSON.stringify(post));
-    //         localStorage.setItem("currentFilter", currentFilter);
-    //         window.location.href = "article_page.html";
-    //     });
-    //     searchRendererEl.appendChild(blogPostDiv);
-    //     searchRendererEl.style.display = "flex";
-    // });
-
 }
 
 const modeToggle = document.getElementById("mode-toggle");
@@ -253,7 +225,6 @@ modeToggle.addEventListener("change", function () {
             listElement.classList.remove("text-dark");
             listElement.classList.toggle("text-white");
         });
-        // labelElement.style.backgroundColor = "blue";
         searchResultsElements.backgroundColor = "#2b2b2b";
     }
     else {
@@ -266,7 +237,6 @@ modeToggle.addEventListener("change", function () {
             listElement.classList.remove("text-white");
             listElement.classList.toggle("text-dark");
         });
-        // labelElement.style.backgroundColor = "#333";
         footerElements.forEach(function (element) {
             element.style.color = "#2b2b2b";
         })
@@ -274,14 +244,13 @@ modeToggle.addEventListener("change", function () {
 });
 
 const fontSlider = document.getElementById('sliderFontSize');
-
 var h2Elements = document.querySelector("h2");
 
 fontSlider.addEventListener('input', () => {
     const fontSize = getFontSizeFromSliderValue(fontSlider.value);
     const h2FontSize = getH2FontSize(fontSlider.value);
     document.body.style.fontSize = `${fontSize}rem`;
-    console.log(document.body.style.fontSize);
+    // console.log(document.body.style.fontSize);
 });
 
 function getFontSizeFromSliderValue(sliderValue) {
@@ -296,12 +265,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadingScreen = document.getElementById('loading-screen');
     const loadingMessage = document.getElementById('loading-message');
 
-    // Show loading screen
     loadingScreen.style.display = 'flex';
-
-    // Simulate a delay using setTimeout
     setTimeout(function () {
-        // Hide loading screen after the timeout
         loadingScreen.style.display = 'none';
-    }, 2000); // Adjust the timeout duration as needed
+    }, 2000);
 });

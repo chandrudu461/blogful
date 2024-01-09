@@ -43,30 +43,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function getBlogPostData() {
-        var blogPostData = JSON.parse(localStorage.getItem("selectedBlogPost"));
+        // var blogPostData = JSON.parse(localStorage.getItem("selectedBlogPost"));
+        const urlParams = new URLSearchParams(window.location.search);
+        const blogId = (urlParams.get('id') || '').toLowerCase();
+
+        console.log(blogId);
+        // data.forEach((blog) => {
+        //     if (blog.id === blogId) {
+        //         currentBlog = blog;
+        //     }
+        // });
+
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].id === blogId) {
+                currentBlog = data[i];
+            }
+        }
+
         // console.log(blogPostData);
-        currentBlog = blogPostData;
-        return blogPostData;
+        // currentBlog = blogPostData;
+        return currentBlog;
     }
 
     function renderArticle() {
         var blogPostData = getBlogPostData();
-
-
-
         if (blogPostData) {
-            function shareOnWhatsapp() {
-                // console.log("sharing on whatsapp");
-            }
-            function shareOnFacebook() {
-                // console.log("sharing on facebook");
-            }
-            function shareOnInstagram() {
-                // console.log("sharing on instagram");
-            }
-            function shareOnTwitter() {
-                // console.log("sharing on Twitter");
-            }
             var articleDiv = document.createElement("div");
             articleDiv.className = "article-content";
             articleDiv.innerHTML = `
@@ -217,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var footerElements = document.querySelectorAll(".footer");
     var boxElement = document.querySelector(".box");
     var backElement = document.querySelector("#backElement");
-    console.log(backElement);
+    // console.log(backElement);
     if (themeMode === "dark-mode") {
         buttonElements.forEach(function (button) {
             button.style.backgroundColor = "#1976D2";

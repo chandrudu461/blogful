@@ -1,5 +1,6 @@
 const data = [
     {
+        id: '1',
         image: 'Technology1.jpg',
         category: 'Technology',
         fullname: 'Michael Chang',
@@ -10,6 +11,7 @@ const data = [
         description: 'A glimpse into the technological advancements and their potential impact on various industries.'
     },
     {
+        id: '2',
         image: 'TechImage1.jpg',
         category: 'Technology',
         fullname: 'Jennifer Davis',
@@ -20,6 +22,7 @@ const data = [
         description: 'Exploring how Cultureificial intelligence is transforming the healthcare landscape.'
     },
     {
+        id: '3',
         image: 'TechImage2.jpg',
         category: 'Technology',
         fullname: 'Alex Rodriguez',
@@ -30,6 +33,7 @@ const data = [
         description: 'Diving deep into the evolving landscape of cyber threats and the measures to counteract them.'
     },
     {
+        id: '4',
         image: 'TechImage3.jpg',
         category: 'Technology',
         fullname: 'Sophie Lee',
@@ -40,6 +44,7 @@ const data = [
         description: 'Examining the impact of decentralized finance on traditional banking systems.'
     },
     {
+        id: '5',
         image: 'TechImage4.jpg',
         category: 'Technology',
         fullname: 'Robert Smith',
@@ -50,6 +55,7 @@ const data = [
         description: 'The role of Cultureificial intelligence in enhancing efficiency and precision in manufacturing processes.'
     },
     {
+        id: '6',
         image: 'TechImage5.jpg',
         category: 'Technology',
         fullname: 'Emily White',
@@ -60,6 +66,7 @@ const data = [
         description: 'Highlighting the latest advancements propelling humanity\'s exploration beyond our planet.'
     },
     {
+        id: '7',
         image: 'TechImage6.jpg',
         category: 'Technology',
         fullname: 'David Johnson',
@@ -70,6 +77,7 @@ const data = [
         description: 'Exploring the potential of 5G technology in revolutionizing communication and connectivity.'
     },
     {
+        id: '8',
         image: 'TechImage7.jpg',
         category: 'Technology',
         fullname: 'Elena MCultureinez',
@@ -80,6 +88,7 @@ const data = [
         description: 'Examining the applications and impact of augmented reality in various industries.'
     },
     {
+        id: '9',
         image: 'TechImage8.jpg',
         category: 'Technology',
         fullname: 'Ryan Brown',
@@ -90,6 +99,7 @@ const data = [
         description: 'Exploring groundbreaking technologies driving the shift towards sustainable and clean energy sources.'
     },
     {
+        id: '10',
         image: 'TechImage9.jpg',
         category: 'Technology',
         fullname: 'Michelle Turner',
@@ -100,6 +110,7 @@ const data = [
         description: 'A look into the latest advancements in gene editing and their potential in medical breakthroughs.'
     },
     {
+        id: '11',
         image: 'TechImage10.jpg',
         category: 'Technology',
         fullname: 'Daniel Clark',
@@ -110,6 +121,7 @@ const data = [
         description: 'Examining the advancements and challenges in the development of self-driving cars and their impact on transportation.'
     },
     {
+        id: '12',
         image: 'CultureImage1.jpg',
         category: 'Culture',
         fullname: 'Sophia Anderson',
@@ -120,6 +132,7 @@ const data = [
         description: 'Exploring the transformative impact of digital technologies on the world of Culture.'
     },
     {
+        id: '13',
         image: 'CultureImage2.jpg',
         category: 'Culture',
         fullname: 'Oliver Hughes',
@@ -130,6 +143,7 @@ const data = [
         description: 'An in-depth analysis of contemporary painting styles and their cultural significance.'
     },
     {
+        id: '14',
         image: 'CultureImage3.jpg',
         category: 'Culture',
         fullname: 'Emma Walker',
@@ -140,6 +154,7 @@ const data = [
         description: 'Examining how sculptors express emotion and form through their creations in the contemporary Culture scene.'
     },
     {
+        id: '15',
         image: 'CultureImage4.jpg',
         category: 'Culture',
         fullname: 'Lucas Bennett',
@@ -150,6 +165,7 @@ const data = [
         description: 'An exploration of the cultural impact and diversity of street Culture in urban environments.'
     },
     {
+        id: '16',
         image: 'CultureImage5.jpg',
         category: 'Culture',
         fullname: 'Isabella Garcia',
@@ -160,6 +176,7 @@ const data = [
         description: 'Delving into the Artistry and techniques behind impactful photography in the digital age.'
     },
     {
+        id: '17',
         image: 'CultureImage6.jpg',
         category: 'Culture',
         fullname: 'Ethan Turner',
@@ -170,6 +187,7 @@ const data = [
         description: 'Exploring the creative aspects and techniques behind cinematography as a unique form of visual storytelling.'
     },
     {
+        id: '18',
         image: 'CultureImage7.jpg',
         category: 'Culture',
         fullname: 'Ava Rodriguez',
@@ -180,6 +198,7 @@ const data = [
         description: 'An in-depth look at the convergence of technology and Culture in the realm of digital sculpture and 3D modeling.'
     },
     {
+        id: '19',
         image: 'CultureImage8.jpg',
         category: 'Culture',
         fullname: 'Gabriel MCultureinez',
@@ -190,6 +209,7 @@ const data = [
         description: 'Examining how Artists are pushing boundaries by creating immersive and interactive Culture installations.'
     },
     {
+        id: '20',
         image: 'CultureImage9.jpg',
         category: 'Culture',
         fullname: 'Lily Johnson',
@@ -200,6 +220,7 @@ const data = [
         description: 'A visual journey through the lens, capturing the vibrant and ever-changing world of street Culture photography.'
     },
     {
+        id: '21',
         image: 'CultureImage10.jpg',
         category: 'Culture',
         fullname: 'Mia Clark',
@@ -210,6 +231,7 @@ const data = [
         description: 'Exploring the intersection of Culture and Cultureificial intelligence, showcasing AI-generated Culturework and its implications.'
     },
     {
+        id: '22',
         image: 'IdeasImage1.jpg',
         category: 'Ideas',
         fullname: 'Nathan Turner',
@@ -220,6 +242,7 @@ const data = [
         description: 'Discussing innovative approaches and strategies for organizations to thrive amidst rapid technological and societal changes.'
     },
     {
+        id: '23',
         image: 'IdeasImage2.jpg',
         category: 'Ideas',
         fullname: 'Hannah White',
@@ -230,6 +253,7 @@ const data = [
         description: 'Examining the role of collective intelligence in fostering creativity and innovation within collaborative work environments.'
     },
     {
+        id: '24',
         image: 'IdeasImage3.jpg',
         category: 'Ideas',
         fullname: 'Noah Garcia',
@@ -240,6 +264,7 @@ const data = [
         description: 'A forward-looking exploration of emerging trends and potential future scenarios that may reshape industries and societies.'
     },
     {
+        id: '25',
         image: 'IdeasImage4.jpg',
         category: 'Ideas',
         fullname: 'Aria Smith',
@@ -250,6 +275,7 @@ const data = [
         description: 'Delving into the principles of design thinking and how it can be applied to solve complex problems and drive innovation.'
     },
     {
+        id: '26',
         image: 'IdeasImage5.jpg',
         category: 'Ideas',
         fullname: 'Elijah Turner',
@@ -260,6 +286,7 @@ const data = [
         description: 'Exploring the intersection of business and social impact, showcasing innovative initiatives driving positive change.'
     },
     {
+        id: '27',
         image: 'IdeasImage6.jpg',
         category: 'Ideas',
         fullname: 'Aiden Brown',
@@ -270,6 +297,7 @@ const data = [
         description: 'Exploring innovative ideas and technologies that contribute to sustainable living and environmental conservation.'
     },
     {
+        id: '28',
         image: 'IdeasImage7.jpg',
         category: 'Ideas',
         fullname: 'Madison Martinez',
@@ -280,6 +308,7 @@ const data = [
         description: 'Discussing forward-thinking concepts and technologies that are reshaping the landscape of education for future generations.'
     },
     {
+        id: '29',
         image: 'IdeasImage8.jpg',
         category: 'Ideas',
         fullname: 'Logan Turner',
@@ -290,6 +319,7 @@ const data = [
         description: 'Highlighting the importance of inclusive design in creating products and solutions that cater to diverse user needs.'
     },
     {
+        id: '30',
         image: 'IdeasImage9.jpg',
         category: 'Ideas',
         fullname: 'Zoe Johnson',
@@ -300,6 +330,7 @@ const data = [
         description: 'Examining innovative approaches to community development that empower individuals and foster resilience in the face of challenges.'
     },
     {
+        id: '31',
         image: 'IdeasImage10.jpg',
         category: 'Ideas',
         fullname: 'Mason Clark',
